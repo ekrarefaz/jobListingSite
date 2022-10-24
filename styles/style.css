@@ -1,0 +1,728 @@
+
+/*
+COS10011 | Assignment 1 CSS File
+Author: Ekrar Uddin Mohammed Efaz (103494172)
+Styling for Home, Jobs, Apply, About Pages
+
+check comments for page specific styling.
+*/
+:root{
+    /*Setting Variables for easier code-reuse and color changing*/
+
+    /*Pre-made Gradients from  https://uigradients.com*/
+    --mainGradient: linear-gradient(to top, #7AA1D2, #DBD4B4, #CC95C0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    --fallBackGradient: -webkit-linear-gradient(to bottom, #99a1aa, #DBD4B4, #CC95C0);  /* Chrome 10-25, Safari 5.1-6 */
+    /*Pre-made Gradients from  https://uigradients.com*/
+    --secondaryGradient:linear-gradient(to top, #4B1248, #F0C27B); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    --secondaryFallbackG: -webkit-linear-gradient(to bottom, #4B1248, #F0C27B);  /* Chrome 10-25, Safari 5.1-6 */
+    
+    --primary-bg:beige;
+    --secondary-bg:#eed6b2;
+    --pink-bg: #CC95C0;
+    --blue-bg: #7AA1D2;
+    --text-color:black;
+}
+/*              #########       COMMON STYLING     ########               */
+*{
+    box-sizing: border-box;
+    color:var(--text-color);
+}
+body,footer{
+    background-color: var(--primary-bg); 
+}
+/* Working on Navbar*/
+
+.navbar a{
+    color: var(--text-color);
+    background-color: var(--primary-bg);
+}
+.navbar ul{
+    display: flex;
+    align-items: center;
+}
+.navbar ul li{
+    padding: 20px;
+    display: block;
+}
+#theme-wrapper{
+    display: flex;
+    justify-content:center;
+}
+.theme-dot{
+  background-color: black;
+  height : 20px;
+  width: 20px;
+  border-radius: 50%;
+  margin: 5px;
+  cursor: pointer;
+}
+.theme-dot:hover{
+    border-width: 5px;
+    border: solid;
+}
+#light-mode{
+    background-color:#eed6b2 ;
+    border-color:black;
+
+}
+#dark-mode{
+    background-color: black;
+    border-color: white;
+    
+}
+/*Change Navbar element color on hover*/
+nav a:hover{
+    /* background-color:#eed6b2;
+    transition: background-color .3s; */
+    border-bottom: 5px solid black;
+    transition: border-bottom .3s;
+}
+/* FOOTER FOR ALL PAGE STYLING*/
+footer{
+    display: flex;
+    justify-content: center;
+}
+footer ul{
+    display: flex;
+    justify-content: space-between;
+    clear:both;
+}
+footer ul li{
+    padding: 20px;
+    padding-top: 50px;
+    display: block;
+}
+footer ul li a{
+    font-size: 1rem;
+}
+/*Color for About Page Footer*/
+
+.about-footer{
+    background-color:var(--secondary-bg);
+}
+
+
+/* Assigning the fonts to the tags*/
+
+/*Font from Google Fonts https://fonts.google.com*/ /*FONT NAME : PRESS START 2P*/
+h1,h1,h3,h4,h5,legend,option{
+    font-family: 'Press Start 2P', cursive;
+}
+/*Font from Google Fonts https://fonts.google.com*/ /* FONT NAME: VT323*/
+p,a, li, strong,label, h6, dd, dl{
+    font-family: 'VT323', monospace;
+    font-size: 1.5em;
+}
+small{
+    font-family: 'VT323', monospace;
+    font-size: 0.7em;
+}
+/* Adding style to the link for menu and clickables*/
+a{
+    background-color: white;
+    color: var(--secondary-text-color);
+    padding: 0.5em 0.5em;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+/* Keeping a Consistent Image Frame throughout website*/
+.img-frame {
+    width: 300px;
+    height: 300px;
+    border: 3px solid #ccc;
+    background: #eee;
+    margin: auto;
+    padding: 15px 10px;
+}
+
+
+                /*#########       INDEX.HTML STYLING     ########*/
+
+
+
+.s1{
+    /*border: 2px solid red;*/
+    padding: 50px;
+    background: var(--fallBackGradient);
+    background: var(--mainGradient);
+    
+}
+.s2{
+    /*border: 2px solid blue;*/
+    display: flex;
+    justify-content: space-around;
+    padding: 50px;
+}
+img{
+    width: 100%;
+    height: 100%;
+}
+.s3{
+    /*border: 2px solid yellow;*/
+    display: flex;
+    padding: 50px;
+    justify-content: space-between;
+
+    background: var(--fallBackGradient);
+    background: var(--mainGradient);
+    border-bottom: 3px solid var(--pinkBorder);
+}
+.co-name{
+   /* border: 1px solid blueviolet;*/
+    font-family: 'Press Start 2P', cursive;
+    font-size: 2.3em;
+
+}
+
+                /*#########      JOBS.HTML STYLING     ######## */
+
+
+
+/*Using Grid Display to layout Jobs.html page.*/
+.main-wrapper{
+    /*border: 2px solid green;*/
+    padding: 10px;
+    /*padding-left: 400px;*/
+    display : grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+    'text-wrapper pos1-intro'
+    'text-wrapper pos2-intro'
+    'p1-eskills p1-des'
+    'p1-preskills p1-des'
+    'p2-des p2-eskills'
+    'p2-des p2-preskills' ;
+    grid-gap: 10px;
+    grid-row-gap: 20px;
+}
+
+/*setting grid area*/
+.text-wrapper{
+    /*border: 2px solid yellow;*/
+    padding-top: 50px;
+    grid-area:text-wrapper;
+    padding: 100px; 
+    background: var(--secondaryFallbackG);
+    background: var(--secondaryGradient);
+}
+.p1-intro{
+    /*border: 2px solid black;*/
+    padding: 50px;
+    padding-top: 50px;
+    padding-left: 170px;
+    align-items: center;
+    grid-area: pos1-intro;
+    background:var(--primary-bg);
+}
+.p2-intro{
+    /*border: 2px solid blue;*/
+    padding: 50px;
+    grid-area: pos2-intro;
+    padding-left: 170px;
+    background:var(--primary-bg);
+}
+.p1-des{
+    padding: 50px;
+    padding-top:130px;
+    grid-area: p1-des;
+    background: var(--secondaryFallbackG);
+    background: var(--secondaryGradient);
+}
+.p2-des{
+    grid-area: p2-des;
+    padding: 50px;
+    padding-top: 130px;
+    background: var(--secondaryFallbackG);
+    background: var(--secondaryGradient);
+}
+.p1-eskills{
+    grid-area: p1-eskills;
+    padding: 50px;
+    background:var(--primary-bg);
+}
+.p1-preskills{
+    grid-area: p1-preskills;
+    padding: 50px;
+    background:var(--primary-bg);
+}
+.p2-eskills{
+    grid-area: p2-eskills;
+    padding: 50px;
+    background:var(--primary-bg);
+}
+.p2-preskills{
+    grid-area:p2-preskills;
+    padding: 50px;
+    background:varvar(--primary-bg);
+}
+
+/*footer{
+    align-content: center;
+    padding-bottom: 100px;
+    padding-left: 540px;
+}*/
+
+/*Common button styling*/
+.apply-btn{
+    background-color: var(--secondary-bg);
+    color: var(--text-color);
+    padding: 0.5em 0.5em;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+/*Common button styling*/
+.home-btn,.submit-btn,.reset-btn{
+    background-color: var(--secondary-bg);
+    color: var(--text-color);
+    padding: 0.5em 0.5em;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding-left: 110px;
+    padding-right: 110px;
+}
+.jobs-btn-wrapper{
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+}
+                /* ############ APPLY.HTML SYLING #############*/
+
+
+
+label{
+    line-height: 2.7em;
+    font-size: 1.3em;
+}
+input{
+    line-height: 2.7em;
+    background:var(--primary-bg);
+}
+.mega-intro:hover{
+    font-size: 1.5em;
+    transition: font-size .8s;
+}
+/*Making Grid Area template*/
+.apply-pg-body{
+    margin: 0;
+    padding : 0;
+    box-sizing: border-box;
+}
+.form-main{
+    padding: 30px;
+    background: var(--secondary-bg);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas:
+    'job-details job-details'
+    'personal-details address-details'
+    'skill-details contact-details'
+    ;
+    grid-gap: 10px;
+}
+legend:hover{
+    font-size: 1.5em;
+    transition: font-size .7s;
+}
+fieldset{
+    border: 2px solid black;
+}
+/*Setting Grid Area*/
+.job-details{
+    grid-area: job-details;
+    padding-top: 50px;
+}
+.personal-details{
+    grid-area:personal-details;
+}
+.address-details{
+    grid-area:address-details;
+	padding: 20px;
+}
+.contact-details{
+    grid-area:contact-details;
+}
+.skill-details{
+    grid-area: skill-details;
+	padding-left: 30px;
+}
+.page-btn-wrapper{
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+
+}
+.submit-btn{
+    display: block;
+    float: right;
+}
+/*Giving Button on Hover style*/
+.submit-btn:hover{
+    background-color: darkgreen;
+    transition: background-color .7s;
+}
+.reset-btn:hover{
+    background-color: darkred;
+    transition: background-color .7s;
+}
+.form-control.error input{
+    border-color: darkred;
+}
+.form-control.error small{
+    color: darkred;
+}
+.form-control.success input{
+    border-color: darkgreen;
+}
+.final-error{
+    color:darkred;
+    border-style: ridge;
+    border-color: darkred;
+    visibility: hidden;
+    align-content: center;
+}
+.popup-container{
+    position:fixed;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    background-color: rgba(0, 0, 0, 0.5);
+    
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+.popup-container.active{
+    display: flex;
+    z-index: 1;
+}
+.popup{
+    background:var(--primary-bg);
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    padding: 2rem;
+    width: 500px;
+    position: relative;
+}
+
+
+
+                        /*###### STYLING ABOUT ME PAGE########*/
+
+.about-main{
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+}
+.about-main:hover{
+    padding:50px;
+    transition: padding .7s;
+}
+.img-wrapper{
+    padding-top: 50px;
+}
+
+.info-wrapper{
+    padding: 50px;
+    background: var(--secondary-bg);
+}
+.info-wrapper dl dd a{
+    font-size: 1rem;
+}
+.mailto-btn{ 
+    width: 20px;
+    height: 20px;
+    font-size: 0.5em;
+    padding: 5%;
+    margin-left:10px;
+    
+}
+.mailto-btn a{
+    font-size: 0.5em;
+    font-family: 'VT323', monospace;
+}
+.info-wrapper dd,dl{
+    font-size: 1.2em;
+}
+.info-wrapper:hover{
+    background-color: var(--blue-bg);
+    transition: background-color .7s;
+}
+.ceo-wrapper{
+    background-color: var(--secondary-bg);
+    transition: background-color .7s;
+    padding: 50px;
+}
+/* Styling Time Table*/
+.timetable{
+    padding: 50px;
+    padding-left: 10%;
+    width: 100%;
+}
+table{
+    border: 2px solid black;
+    border-collapse: collapse;
+    width: 100%;
+}
+tr,td{
+    border: 2px solid black;
+    padding: 20px;
+}
+tr{
+    background: #DBC39A;
+}
+/*Change Color on Hover Table Element*/
+tr:hover{
+    background-color: #7AA1D2;
+    transition: background-color .5s;
+}
+td:hover{
+    background-color: #CC95C0;
+    transition: background-color .5s;
+}
+
+/* Enhancement Page Styling */
+.enhance-wrapper{
+    display: block;
+    justify-content: space-evenly;
+    padding: 50px;
+}
+.enhance-wrapper img{
+    width:20%;
+    height: 80%;
+}
+.first-row-wrapper{
+    display: flex;
+    justify-content: space-around;
+    
+}
+.second-row-wrapper{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+}
+.first-row-wrapper p {
+    padding: 200px;
+    background:var(--mainGradient);
+}
+.second-row-wrapper p{
+    padding:200px;
+    background:var(--mainGradient);
+}
+.third-row-wrapper{
+    display: flex;
+     flex-wrap:initial;
+    justify-content: space-around;
+    padding: 60px;
+}
+.third-row-wrapper img{
+    width: 150%;
+    height: auto;
+    padding: 20px;
+}
+.third-row-wrapper p{
+    background:var(--mainGradient);
+    padding: 100px;
+}
+.link-to{
+    padding: 0;
+    font-size: 1.5rem;
+    color:gray;
+    background-color: var(--primary-bg);
+    margin:100px; 
+}
+/*    ENHANCEMENT 2 PAGE STYLES      */
+.card {
+    margin: 100px auto 0 ;
+    width: 1000px;
+    height: 50%;
+    display: flex;
+    justify-content:space-evenly;
+}
+.card1{
+    background-color: var(--blue-bg);
+    border: 2px solid var(--blue-bg);
+    transform: translateX(-30px);
+    padding: 100px 50px;
+    box-shadow: 0px 3px 18px 3px rgba(0, 0, 0, 0.3);
+}
+.card2{
+    background-color: var(--blue-bg);
+    border: 2px solid var(--blue-bg);
+    transform: translateX(30px);
+    padding:100px 50px;  
+    box-shadow: 0px 3px 18px 3px rgba(0, 0, 0, 0.3);
+ 
+}
+
+/*   Success and Error Page Styles   */
+.error-container{
+    position:fixed;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    background-color: rgba(0, 0, 0, 0.5);
+    
+    display: flex;
+    z-index: 1;
+    align-items: center;
+    justify-content: center;
+}
+.success-container{
+    position:fixed;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    background-color: rgba(0, 0, 0, 0.5);
+    
+    display: flex;
+    z-index: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+/*     MANAGER QUERY PAGE STYLE     */
+.opening{
+    display:flex;
+    justify-content:initial;
+}
+.query-btn, .load-btn{
+    margin:15px 10px 5px 10px;
+}
+.drop-down{
+    font-size: 13px;
+    padding: 10px 8px 10px 14px;
+    background: var(--primary-bg);
+    border: 1px solid black;
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+}
+.jobref-input{
+    display: none;
+}
+.jobref-input.active{
+    display: flex;
+}
+.name-input{
+    display: none;
+}
+.name-input.active{
+    display: flex;
+}
+
+.eoi-input{
+    display: none;
+}
+.eoi-input.active{
+    display: flex;
+}
+.delete-input{
+    display: none;
+}
+.delete-input.active{
+    display: flex;
+}
+
+/*     LOGIN PAGE STYLE         */
+
+.login-card{
+    margin: 100px auto 0 ;
+    width: 800px;
+    height: 50%;
+    background-color: var(--blue-bg);
+    border: 2px solid var(--blue-bg);
+    transform: translateX(-50px);
+    padding: 100px 50px;
+    box-shadow: 0px 3px 18px 3px rgba(0, 0, 0, 0.3);
+}
+
+/*Responsive Web Design using media-query*/
+
+@media screen and (max-width:800px){
+    .form-main{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
+        grid-template-areas:
+        'job-details'
+        'personal-details'
+        'address-details'
+        'contact-details'
+        'skill-details'
+    }
+    .main-wrapper{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
+        grid-template-areas:
+        'text-wrapper'
+        'pos1-intro'
+        'p1-des'
+        'p1-eskills'
+        'p1-preskills'
+        'pos2-intro'
+        'p2-des'
+        'p2-eskills'
+        'p2-preskills'
+    }
+    .mega-intro{
+        padding:0;
+        font-size: 1em;
+    }
+    .navbar li{
+        font-size:1em;
+        padding:0;
+        display: inline-block;
+    }
+    .navbar ul{
+        padding: 0;
+        margin:0;
+        display: inline-block;
+    }
+    .page-btn-wrapper{
+        display: block;
+    }
+    .submit-btn{
+        margin-right: 50px;
+    }
+    .reset-btn{
+        margin-left: 45px;
+    }
+    .apply-footer ul{
+        display: inline-block;
+        max-width: 50%;
+    }
+    .apply-footer ul li{
+        padding: 0;
+        padding-top:0;
+    }
+    .about-main{
+        display: inline-block;
+    }
+    .timtable table{
+        max-width: 30em;
+    }
+    .card {
+        margin:0;
+        width: 100%;
+        height: 50%;
+        display: block;
+        justify-content: space-between;
+    }
+    .card1{
+        padding:0;
+        transform: translateX(0);
+    }
+    .card2{
+        padding:0;
+        transform: translateX(0);
+
+    }
+}
